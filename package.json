@@ -1,0 +1,23 @@
+{
+  "name": "@mikepol/ng-photo-grid",
+  "version": "1.0.0",
+  "description": "Angular photo grid",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mike1pol/ng-photo-grid.git"
+  },
+  "keywords": [
+    "angular",
+    "photos"
+  ],
+  "author": "Nhan Nguyen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mike1pol/ng-photo-grid/issues"
+  },
+  "homepage": "https://github.com/mike1pol/ng-photo-grid#readme"
+}
