@@ -250,7 +250,7 @@ angular.module("ngPhotoGrid")
         if(curImageWidth <= cellWidth) {
           return { width: "100%", position: "relative", top: top + "px"}
         } else {
-          return { maxHeight: "100%", height: "100%", position: "relative", left: left + "px"}
+          return { maxHeight: "100%", height: "100%", position: "relative"} //, left: left + "px"
         }
       }
 
