@@ -123,11 +123,11 @@ angular.module("ngPhotoGrid")
                 scope.$apply()
               }, 10)
             }
-            
-            if(scope.loadedTakenImages.length == scope.takenImages.length) {   
+
+            if(scope.loadedTakenImages.length == scope.takenImages.length) {
               //trigger build completed handler
               scope.defaultOptions.onBuilded(element)
-   
+
               //grid also can be build after all image loaded
               //all image would be shown correctly, loading time cause poor UX
               if(!scope.defaultOptions.buildOnLoading) {
@@ -137,7 +137,7 @@ angular.module("ngPhotoGrid")
                 }, 15)
               }
             }
-            
+
           };
           img.src = image[scope.defaultOptions.urlKey];
         });
@@ -151,7 +151,7 @@ angular.module("ngPhotoGrid")
         styles          = scope.getCellStyles();
         smallCellHeight = styles.options.smallCellHeight;
         smallCellWidth  = styles.options.smallCellWidth;
-        bigCellWidth    = styles.options.bigCellWidth;
+        bigCellWidth    = styles.options.bigCellWidth - 200;
         bigCellHeight   = styles.options.bigCellHeight;
         cellCount       = styles.options.cellCount;
         is2First        = styles.options.is2First;
@@ -230,7 +230,7 @@ angular.module("ngPhotoGrid")
         var curImageWidth = cellWidth;
         var curImageHeight = Math.round(curImageWidth  / imgRatio);
         if(curImageHeight >= cellHeight) {
-          var top = (-1) * Math.round((cellWidth / imgRatio - cellHeight) / 2);
+          // var top = (-1) * Math.round((cellWidth / imgRatio - cellHeight) / 2);
           if(curImageWidth < cellWidth) {
             return { width: "100%", position: "relative", top: top + "px"}
           } else {
@@ -241,7 +241,7 @@ angular.module("ngPhotoGrid")
           return { maxHeight: "100%", height: "100%", position: "relative", left: left + "px"}
         }
       }
-          
+
       function getSmallImagePortraitStyle(cellHeight, cellWidth, imgRatio) {
         var curImageHeight = cellHeight;
         var curImageWidth = Math.round(curImageHeight  * imgRatio);
@@ -250,7 +250,7 @@ angular.module("ngPhotoGrid")
         if(curImageWidth <= cellWidth) {
           return { width: "100%", position: "relative", top: top + "px"}
         } else {
-          return { maxHeight: "100%", height: "100%", position: "relative", left: left + "px"} 
+          return { maxHeight: "100%", height: "100%", position: "relative", left: left + "px"}
         }
       }
 
@@ -262,7 +262,7 @@ angular.module("ngPhotoGrid")
       *------------------------------------------------*/
       buildCellStyle      = function (firstImage, secondImage, cellCount) {
         var firstRatio, secondRatio, bigCellStyle, smallCellStyle, lastCellStyle,
-            WIDTH_RATE, bigCellWidth, bigCellHeight, smallCellHeight, smallCellWidth, is2First, 
+            WIDTH_RATE, bigCellWidth, bigCellHeight, smallCellHeight, smallCellWidth, is2First,
             case2BigImage1, case2BigImage2;
 
         firstRatio              = firstImage.naturalWidth / firstImage.naturalHeight;
@@ -350,14 +350,14 @@ angular.module("ngPhotoGrid")
           bigCellStyle.marginBottom  = MARGIN;
           smallCellStyle.marginRight = MARGIN;
           var smallCellCount         = cellCount - 1;
-          
+
           if (IS_SQUARE) {
             bigCellStyle.height   = GRID_WIDTH * 2 / 3;
             bigCellStyle.width    = GRID_WIDTH;
             smallCellStyle.height = GRID_WIDTH * 1 / 3 - MARGIN;
           } else {
             bigCellStyle.width    = GRID_WIDTH ;
-            bigCellStyle.height   = GRID_WIDTH * 2 / 3;
+            bigCellStyle.height   = GRID_WIDTH * 2 / 3 - 200;
           }
           smallCellStyle.width  = ( GRID_WIDTH - smallCellCount * MARGIN ) / smallCellCount;
           // determine the height of smallCell below
